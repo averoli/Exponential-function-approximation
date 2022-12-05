@@ -7,23 +7,22 @@ let sum = 1;
 function exponential(x, n) {
   for (i = n; i > 0; i--) {
     sum = 1 + (x * sum) / i;
-    sum.toString();
+    return sum.toFixed(9);
   }
   return sum;
 }
 
 //! 2. What should be the value of in order to approximate up to 9 decimals?
-function calculateN(x, numberDecimals) {
-  const exactValue = Math.pow(Math.E, x); // 2.718281828;
-  const minError = Math.pow(10, -numberDecimals); // min error is equal to .000000001
+function calculateN() {
+  const exactValue = 2.718281828;//9 decimals
   const maxIterations = 1000;
   for (let i = 0; i <= maxIterations; i++) {
-    let aproximatedValue = exponential(x, i);
-    if (exactValue - aproximatedValue < minError) {
+    let aproximatedValue = exponential(1, i);
+    if (exactValue - aproximatedValue === 0) {
       return i;
     }
   }
   return "Max iterations should be increased.";
 }
 
-console.log("Value of n should be", calculateN(1, 9));
+console.log("Value of n should be", calculateN());
