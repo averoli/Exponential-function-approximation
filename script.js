@@ -7,14 +7,14 @@ let sum = 1;
 function exponential(x, n) {
   for (i = n; i > 0; i--) {
     sum = 1 + (x * sum) / i;
-    return sum.toFixed(9);
   }
-  return sum;
+  return sum.toFixed(9);
 }
+
 
 //! 2. What should be the value of in order to approximate up to 9 decimals?
 function calculateN() {
-  const exactValue = 2.718281828;//9 decimals
+  const exactValue = 2.718281828;
   const maxIterations = 1000;
   for (let i = 0; i <= maxIterations; i++) {
     let aproximatedValue = exponential(1, i);
